@@ -1,0 +1,6 @@
+{
+  "name": "VC High Performance Academy",
+  "description": "Professional education, coaching, yoga and performance development academy in London, UK. High Performance Without Burnout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

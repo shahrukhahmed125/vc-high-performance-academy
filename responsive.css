@@ -1,0 +1,538 @@
+/* ==========================================================================
+   VC HIGH PERFORMANCE ACADEMY — RESPONSIVE STYLESHEET
+   Comprehensive responsive design across all viewports
+   Tested for: 1920px, 1440px, 1280px, 1024px, 768px, 390px, 360px
+   ========================================================================== */
+
+/* --- Large Desktops (1440px - 1920px+) --- */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1360px;
+  }
+  .hero-section {
+    min-height: 85vh;
+  }
+}
+
+/* --- Desktops & Laptops (under 1200px) --- */
+@media (max-width: 1199px) {
+  .nav-list {
+    gap: 18px;
+  }
+  .nav-link {
+    font-size: 0.875rem;
+  }
+  .programmes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .approach-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .featured-programme-box {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-programme-media {
+    min-height: 380px;
+  }
+
+  .founder-box {
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    padding: 48px 36px;
+  }
+
+  .corporate-layout {
+    gap: 40px;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* --- Tablets (under 992px) --- */
+@media (max-width: 991px) {
+  :root {
+    --header-height: 76px;
+    --header-height-scrolled: 68px;
+    --container-padding: 20px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-lg {
+    padding: 96px 0;
+  }
+
+  /* Header state when mobile offcanvas is open */
+  .site-header {
+    z-index: 10000;
+  }
+
+  body.nav-open .site-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Scrim backdrop: strictly behind header and drawer (z-index 9995 vs 10000) */
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 2, 23, 0.65);
+    backdrop-filter: none !important; /* NO BLUR on backdrop to prevent rendering bugs and click capture */
+    -webkit-backdrop-filter: none !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+    z-index: 9995;
+  }
+
+  .nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Mobile Nav Toggle */
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10010;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--deep-purple-dark);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .mobile-nav-toggle:active {
+    transform: scale(0.94);
+    background: var(--light-purple-tint);
+  }
+
+  /* Offcanvas Navigation Drawer */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 330px;
+    max-width: 86vw;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #ffffff !important;
+    box-shadow: -14px 0 45px rgba(17, 3, 26, 0.28);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: right 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10005;
+  }
+
+  .main-nav.active {
+    right: 0 !important;
+  }
+
+  /* Dedicated Top Bar inside Offcanvas Drawer */
+  .drawer-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #13031f 0%, #340c4f 60%, #4b176b 100%);
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
+  }
+
+  .drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .drawer-logo-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--deep-purple) 0%, var(--primary-purple) 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(113, 54, 154, 0.35);
+  }
+
+  .drawer-brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drawer-brand-text strong {
+    font-size: 0.8125rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .drawer-brand-text small {
+    font-size: 0.625rem;
+    color: var(--light-purple);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .drawer-close-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .drawer-close-btn:hover,
+  .drawer-close-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.08);
+  }
+
+  /* List & Links inside Offcanvas Drawer */
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+    padding: 12px 18px;
+    margin: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(113, 54, 154, 0.08);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 4px;
+    color: var(--deep-purple-dark);
+    min-height: 48px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary-purple);
+  }
+
+  /* Dropdown inside Drawer */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background-color: var(--light-purple-tint);
+    border-left: 3px solid var(--primary-purple);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    margin: 0 0 10px 0;
+    min-width: 100%;
+    display: none;
+  }
+
+  .nav-item-dropdown.mobile-open .dropdown-menu {
+    display: block !important;
+  }
+
+  .nav-item-dropdown.mobile-open .dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-link {
+    padding: 9px 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--deep-purple-dark);
+    border-bottom: 1px dashed rgba(113, 54, 154, 0.12);
+    display: block;
+  }
+
+  .dropdown-link:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-desc {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  /* CTA at bottom of Drawer */
+  .nav-cta-mobile {
+    display: block !important;
+    width: 100%;
+    padding: 14px 18px 24px 18px;
+    background-color: #ffffff;
+    border-top: 1px solid rgba(113, 54, 154, 0.08);
+    flex-shrink: 0;
+  }
+
+  .nav-cta-mobile .btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.875rem;
+  }
+
+  .header-actions .btn-primary {
+    display: none; /* Hidden on tablet header, moved inside drawer */
+  }
+
+  /* Grid Reductions */
+  .creatives-grid,
+  .workshops-grid,
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .corporate-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .corporate-float-card {
+    position: static;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+
+  .founder-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .founder-media-wrap {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .founder-pillars {
+    justify-content: center;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* --- Mobile Landscape & Large Phones (under 768px) --- */
+@media (max-width: 767px) {
+  :root {
+    --container-padding: 18px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-lg {
+    padding: 72px 0;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 60px;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .programmes-grid,
+  .creatives-grid,
+  .workshops-grid,
+  .blog-grid,
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-programme-body {
+    padding: 32px 20px;
+  }
+
+  .feature-pill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .pricing-value {
+    font-size: 1.35rem;
+  }
+
+  .corporate-points-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .founder-box {
+    padding: 32px 20px;
+  }
+
+  .founder-img {
+    height: 320px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card,
+  .contact-info-card {
+    padding: 28px 20px;
+  }
+
+  .final-cta-section {
+    padding: 64px 0;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .final-cta-buttons .btn {
+    width: 100%;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-legal-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* --- Small Mobile Phones (360px - 390px) --- */
+@media (max-width: 390px) {
+  :root {
+    --container-padding: 14px;
+  }
+
+  .logo-title {
+    font-size: 0.9375rem;
+  }
+
+  .logo-tagline {
+    font-size: 0.625rem;
+  }
+
+  .logo-symbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.875rem;
+  }
+
+  .programme-img-wrap {
+    height: 190px;
+  }
+
+  .creative-tile {
+    height: 280px;
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
