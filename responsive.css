@@ -501,17 +501,8 @@
     --container-padding: 14px;
   }
 
-  .logo-title {
-    font-size: 0.9375rem;
-  }
-
-  .logo-tagline {
-    font-size: 0.625rem;
-  }
-
-  .logo-symbol {
-    width: 38px;
-    height: 38px;
+  .site-logo-image {
+    max-height: 48px;
   }
 
   .hero-title {

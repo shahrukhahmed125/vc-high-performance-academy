@@ -481,42 +481,12 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 
-.logo-symbol {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--deep-purple) 0%, var(--primary-purple) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(113, 54, 154, 0.28);
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-title {
-  font-family: var(--font-heading);
-  font-size: 1.0625rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--deep-purple-dark);
-  line-height: 1.15;
-}
-
-.logo-title span {
-  color: var(--primary-purple);
-}
-
-.logo-tagline {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-text-muted);
+.site-logo-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
 }
 
 /* Navigation Menu */
@@ -1854,18 +1824,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-brand .site-logo {
   margin-bottom: 18px;
-}
-
-.footer-brand .logo-title {
-  color: var(--color-white);
-}
-
-.footer-brand .logo-title span {
-  color: var(--light-purple);
-}
-
-.footer-brand .logo-tagline {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-tagline-text {
