@@ -458,6 +458,24 @@
     padding: 28px 20px;
   }
 
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-layout > *,
+  .contact-info-card .contact-item > div:last-child {
+    min-width: 0;
+  }
+
+  .contact-info-card .contact-item > div:last-child {
+    overflow-wrap: anywhere;
+  }
+
+  .btn-outline.btn-lg {
+    max-width: 100%;
+    white-space: normal;
+  }
+
   .final-cta-section {
     padding: 64px 0;
   }
